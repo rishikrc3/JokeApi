@@ -1,7 +1,8 @@
 const express = require("express");
+const cors = require("cors");
 const axios = require("axios");
 const app = express();
-
+app.use(cors());
 app.listen(3000, () => {
   console.log("Port running on 3000");
 });
@@ -19,5 +20,5 @@ app.get("/jokes", async (req, res) => {
     console.error("Error, fetching error:", error);
     res.status(500).send("Internal Server Error");
   }
-  res.send("data.setup");
+  // res.send("data.setup");
 });
