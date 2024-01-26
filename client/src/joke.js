@@ -20,7 +20,7 @@ const Jokes = () => {
       <h1>{joke.setup}</h1>
       <h1>{joke.delivery}</h1>
       <button onClick={() => fetchJoke("dark")}>Dark Jokes</button>
-      <button onClick={() => fetchJoke("")}></button>
+      <button onClick={() => fetchJoke("Any Jokes")}>Any Jokes</button>
     </>
   );
 };
