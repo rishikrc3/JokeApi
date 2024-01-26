@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.get("/jokes", async (req, res) => {
   try {
-    const response = await axios.get(" https://v2.jokeapi.dev/joke/Any");
+    const response = await axios.get("https://v2.jokeapi.dev/joke/Any");
     const data = response.data;
     res.json(data);
   } catch (error) {

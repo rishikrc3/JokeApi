@@ -3,10 +3,18 @@ import { useState } from "react";
 const Jokes = () => {
   const [joke, setJoke] = useState({ setup: "", delivery: "" });
   const fetchJoke = async () => {
-    const response = await fetch("http://localhost:3000/jokes");
-    const data = await response.json();
-    setJoke(data);
-    console.log(data);
+    try {
+      const response = await fetch("http://localhost:3000/jokes");
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setJoke(data);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching joke:", error.message);
+    }
   };
   return (
     <>
