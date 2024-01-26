@@ -11,9 +11,11 @@ app.get("/", (req, res) => {
   res.send("Hemlo");
 });
 
-app.get("/jokes", async (req, res) => {
+app.get("/jokes/:category", async (req, res) => {
   try {
-    const response = await axios.get("https://v2.jokeapi.dev/joke/Any");
+    const category = req.params.category;
+    console.log(category);
+    const response = await axios.get("https://v2.jokeapi.dev/joke/" + category);
     const data = response.data;
     res.json(data);
   } catch (error) {
